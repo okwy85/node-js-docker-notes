@@ -16,7 +16,7 @@ services:
             - mydb:mysql
     php:
         image: php:7.2-apache
-        container_name: php
         links:
             - mydb:mysql
 	    - apache:httpd
+	container_name: php
