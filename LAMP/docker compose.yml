@@ -20,3 +20,5 @@ services:
         links:
             - mydb:mysql
 	    - apache:httpd
+...
+	
