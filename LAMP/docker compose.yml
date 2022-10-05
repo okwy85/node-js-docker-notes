@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+    mydb:
+        image: mysql	
+        environment:
+          MYSQL_ROOT_PASSWORD: okwy
+        container_name: mydb
+       
+    apache:
+        container_name: apache
+        image: httpd
+        ports:
+            - "9090:80"
+        links:
+            - mydb:mysql
+    php:
+        image: php:7.2-apache
+        container_name: php
+        links:
+            - mydb:mysql
+			- apache:httpd
